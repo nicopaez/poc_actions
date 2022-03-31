@@ -11,3 +11,9 @@ jobs:
 
     - name: Check Google Services configuration
       run: cat google-services.json
+
+    - name: Archive released artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: config
+        path: google-services.json
