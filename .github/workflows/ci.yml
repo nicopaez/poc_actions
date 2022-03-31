@@ -1,0 +1,15 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: lambdasistemas/react-native-android:1
+    steps:
+    - uses: actions/checkout@v2
+    - name: Dump Google Services configuration
+      run: echo ${{ secrets.GOOGLE_SERVICES }}" > android/app/google-services.json
+
+    - name: Check Google Services configuration
+      run: cat android/app/google-services.json
